@@ -9,20 +9,30 @@
 <body>
   <script src="./defer-promise.js"></script>
   <script>
-    function start() {
-      let target = new defer()
+    // function start() {
+    //   let target = new defer()
 
+    //   setTimeout(function() {
+    //     target.resolve(100)
+    //   }, 1000)
+
+    //   return target.promise
+    // }
+
+    // start().then(function(value) {
+    //   return value + 100
+    // }).then(function(value) {
+    //   console.log(value)
+    // })
+
+    doPromise(function(resolve) {
       setTimeout(function() {
-        target.resolve(100)
+        resolve(100)
       }, 1000)
-
-      return target.promise
-    }
-
-    start().then(function(value) {
-      return value + 100
     }).then(function(value) {
-      console.log(value)
+      return value + 200
+    }).then(function(value) {
+      alert(value)
     })
   </script>
 </body>

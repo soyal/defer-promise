@@ -44,3 +44,9 @@ const ref = function(value) {
     }
   }
 }
+
+const doPromise = function(fn) {
+  let _defer = new defer()
+  fn(_defer.resolve)
+  return _defer.promise
+}
